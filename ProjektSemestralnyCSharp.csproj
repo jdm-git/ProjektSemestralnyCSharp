@@ -68,14 +68,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Admin.cs" />
+    <Compile Include="Domains\Admin.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Category.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="Employee.cs" />
+    <Compile Include="Domains\Category.cs" />
+    <Compile Include="Domains\Client.cs" />
+    <Compile Include="Domains\Employee.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -102,9 +102,17 @@
     <Compile Include="Migrations\202101181606480_ChangingProductProperties.Designer.cs">
       <DependentUpon>202101181606480_ChangingProductProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101181613429_AddedNameColumnToProductTable.cs" />
+    <Compile Include="Migrations\202101181613429_AddedNameColumnToProductTable.Designer.cs">
+      <DependentUpon>202101181613429_AddedNameColumnToProductTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101181619225_PopulateProductsTable.cs" />
+    <Compile Include="Migrations\202101181619225_PopulateProductsTable.Designer.cs">
+      <DependentUpon>202101181619225_PopulateProductsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="Domains\Order.cs" />
+    <Compile Include="Domains\Product.cs" />
     <Compile Include="ProjectContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -133,6 +141,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101181606480_ChangingProductProperties.resx">
       <DependentUpon>202101181606480_ChangingProductProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101181613429_AddedNameColumnToProductTable.resx">
+      <DependentUpon>202101181613429_AddedNameColumnToProductTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101181619225_PopulateProductsTable.resx">
+      <DependentUpon>202101181619225_PopulateProductsTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
