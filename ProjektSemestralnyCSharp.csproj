@@ -86,6 +86,14 @@
     <Compile Include="Migrations\202101181118371_InitialModel.Designer.cs">
       <DependentUpon>202101181118371_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101181511339_PopulateCategoriesTable.cs" />
+    <Compile Include="Migrations\202101181511339_PopulateCategoriesTable.Designer.cs">
+      <DependentUpon>202101181511339_PopulateCategoriesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101181529435_PopulateAdminTable.cs" />
+    <Compile Include="Migrations\202101181529435_PopulateAdminTable.Designer.cs">
+      <DependentUpon>202101181529435_PopulateAdminTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
@@ -105,6 +113,12 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202101181118371_InitialModel.resx">
       <DependentUpon>202101181118371_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101181511339_PopulateCategoriesTable.resx">
+      <DependentUpon>202101181511339_PopulateCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101181529435_PopulateAdminTable.resx">
+      <DependentUpon>202101181529435_PopulateAdminTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

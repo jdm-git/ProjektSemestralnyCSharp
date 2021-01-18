@@ -13,6 +13,10 @@ namespace ProjektSemestralnyCSharp
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Employee> Employees { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            
+        }
         public ProjectContext()
             : base("name=ProjectContext")
         {
