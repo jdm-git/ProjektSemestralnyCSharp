@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202101181529435_PopulateAdminTable.Designer.cs">
       <DependentUpon>202101181529435_PopulateAdminTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101181537553_PopulateClientsTable.cs" />
+    <Compile Include="Migrations\202101181537553_PopulateClientsTable.Designer.cs">
+      <DependentUpon>202101181537553_PopulateClientsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
@@ -119,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101181529435_PopulateAdminTable.resx">
       <DependentUpon>202101181529435_PopulateAdminTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101181537553_PopulateClientsTable.resx">
+      <DependentUpon>202101181537553_PopulateClientsTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
