@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="ProjectContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

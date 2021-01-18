@@ -1,4 +1,6 @@
-﻿namespace ProjektSemestralnyCSharp
+﻿using System.Collections.Generic;
+
+namespace ProjektSemestralnyCSharp
 {
     public class Client
     {
@@ -12,6 +14,11 @@
         public string Phone { get; set; }
         public string ZipCode { get; set; }
         public string Email { get; set; }
+        public ICollection<Order> Orders { get; set; }
+        public Client()
+        {
+            Orders = new HashSet<Order>();
+        }
 
     }
 }
