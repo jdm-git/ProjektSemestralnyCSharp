@@ -5,6 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektSemestralnyCSharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        Title="MainWindow" Height="450" Width="1080" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="clientViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Client}, CreateList=True}"/>
+        <CollectionViewSource x:Key="categoryViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Category}, CreateList=True}"/>
+        <CollectionViewSource x:Key="orderViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Order}, CreateList=True}"/>
+        <CollectionViewSource x:Key="productViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Product}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource clientViewSource}">
+        <DataGrid x:Name="clientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,123,0,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="adressColumn" Binding="{Binding Adress}" Header="Adress" Width="80"/>
+                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="80"/>
+                <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="80"/>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="80"/>
+                <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="80"/>
+                <DataGridTextColumn x:Name="loginColumn" Binding="{Binding Login}" Header="Login" Width="80"/>
+                <DataGridTextColumn x:Name="passwordColumn" Binding="{Binding Password}" Header="Password" Width="80"/>
+                <DataGridTextColumn x:Name="phoneColumn" Binding="{Binding Phone}" Header="Phone" Width="80"/>
+                <DataGridTextColumn x:Name="stateColumn" Binding="{Binding State}" Header="State" Width="80"/>
+                <DataGridTextColumn x:Name="zipCodeColumn" Binding="{Binding ZipCode}" Header="Zip Code" Width="60"/>
+                <DataGridTemplateColumn Header="Edit" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Background="#0095ff" Content="Edit" Click="btnDelete" Margin="5"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Background="#e02f2f" Content="Delete" Click="btnUpdate" Margin="5"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </Window>
