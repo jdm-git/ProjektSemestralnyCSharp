@@ -15,10 +15,10 @@
     <Grid DataContext="{StaticResource clientViewSource}">
         <DataGrid x:Name="clientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,123,0,10" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="80"/>
                 <DataGridTextColumn x:Name="adressColumn" Binding="{Binding Adress}" Header="Adress" Width="80"/>
                 <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="80"/>
                 <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="80"/>
-                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="80"/>
                 <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="80"/>
                 <DataGridTextColumn x:Name="loginColumn" Binding="{Binding Login}" Header="Login" Width="80"/>
                 <DataGridTextColumn x:Name="passwordColumn" Binding="{Binding Password}" Header="Password" Width="80"/>
@@ -28,18 +28,19 @@
                 <DataGridTemplateColumn Header="Edit" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Background="#0095ff" Content="Edit" Click="btnDelete" Margin="5"/>
+                            <Button Background="#0095ff" Content="Edit" Click="UpdateClient_Click" Margin="5"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Delete" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Background="#e02f2f" Content="Delete" Click="btnUpdate" Margin="5"/>
+                            <Button Background="#e02f2f" Content="Delete" Click="DeleteClient_Click" Margin="5"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Admin Panel" Click="OpenWindow_Click" HorizontalAlignment="Left" Margin="868,32,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

@@ -40,16 +40,37 @@ namespace ProjektSemestralnyCSharp
             base.OnClosing(e);
             _context.Dispose();
         }
-        private void btnUpdate(object sender, RoutedEventArgs e)
+        private void UpdateClient_Click(object sender, RoutedEventArgs e)
         {
             if(clientDataGrid.SelectedIndex >= 0)
             {
+                var cellInfo = clientDataGrid.SelectedItem;
                 Client newClient = new Client();
-                
+
+               // newClient.Id = int.Parse(idColumn.GetCellContent(cellInfo);
             }
         }
-        private void btnDelete(object sender, RoutedEventArgs e)
+        private void DeleteClient_Click(object sender, RoutedEventArgs e)
         {
+            int clientId = (clientDataGrid.SelectedItem as Client).Id;
+
+            Client client = _context.Clients.Where(c => c.Id == clientId).SingleOrDefault();
+
+            _context.Clients.Remove(client);
+            _context.SaveChanges();
+
+            
+        }
+        private void OpenWindow_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Show();
+        }
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
