@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace ProjektSemestralnyCSharp
 {
@@ -44,15 +45,32 @@ namespace ProjektSemestralnyCSharp
         {
             if(clientDataGrid.SelectedIndex >= 0)
             {
-                var cellInfo = clientDataGrid.SelectedItem;
+
+               
+
                 Client newClient = new Client();
 
-               // newClient.Id = int.Parse(idColumn.GetCellContent(cellInfo);
+                newClient.Id = (clientDataGrid.SelectedItem as Client).Id;
+                newClient.Adress = (clientDataGrid.SelectedItem as Client).Adress;
+                newClient.Email = (clientDataGrid.SelectedItem as Client).Email;
+                newClient.FirstName = (clientDataGrid.SelectedItem as Client).FirstName;
+                newClient.LastName = (clientDataGrid.SelectedItem as Client).LastName;
+                newClient.Login = (clientDataGrid.SelectedItem as Client).Login;
+                newClient.Password = (clientDataGrid.SelectedItem as Client).Password;
+                newClient.Phone = (clientDataGrid.SelectedItem as Client).Phone;
+                newClient.State = (clientDataGrid.SelectedItem as Client).State;
+                newClient.ZipCode = (clientDataGrid.SelectedItem as Client).ZipCode;
+
+                Client client = clientDataGrid.SelectedItem as Client;
+                _context.Clients.Remove(client);
+                _context.Clients.Add(newClient);
+                _context.SaveChanges();
             }
         }
         private void DeleteClient_Click(object sender, RoutedEventArgs e)
         {
             int clientId = (clientDataGrid.SelectedItem as Client).Id;
+            
 
             Client client = _context.Clients.Where(c => c.Id == clientId).SingleOrDefault();
 
