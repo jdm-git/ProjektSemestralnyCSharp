@@ -46,26 +46,35 @@ namespace ProjektSemestralnyCSharp
         }
         private void UpdateClient_Click(object sender, RoutedEventArgs e)
         {
+            objCLientToEdit = clientDataGrid.SelectedItem as Client;
+            if(objCLientToEdit == null)
+            {
+                MessageBox.Show("Cannot Edit the blank Entry");
+            }
+            else
+            {
                 isUpdateMode = true;
-            clientDataGrid.Columns[1].IsReadOnly = false;
-            clientDataGrid.Columns[3].IsReadOnly = false;
-            clientDataGrid.Columns[4].IsReadOnly = false;
-            clientDataGrid.Columns[7].IsReadOnly = false;
-            clientDataGrid.Columns[8].IsReadOnly = false;
-            clientDataGrid.Columns[9].IsReadOnly = false;
+                clientDataGrid.Columns[1].IsReadOnly = false;
+                clientDataGrid.Columns[3].IsReadOnly = false;
+                clientDataGrid.Columns[4].IsReadOnly = false;
+                clientDataGrid.Columns[7].IsReadOnly = false;
+                clientDataGrid.Columns[8].IsReadOnly = false;
+                clientDataGrid.Columns[9].IsReadOnly = false;
+            }
 
         }
         private void DeleteClient_Click(object sender, RoutedEventArgs e)
         {
-            int clientId = (clientDataGrid.SelectedItem as Client).Id;
-            
-
-            Client client = _context.Clients.Where(c => c.Id == clientId).SingleOrDefault();
-
-            _context.Clients.Remove(client);
-            _context.SaveChanges();
-
-            
+            objCLientToEdit = clientDataGrid.SelectedItem as Client;
+            if(objCLientToEdit == null)
+            {
+                MessageBox.Show("Cannot delete the blank Entry");
+            }
+            else
+            {
+                _context.Clients.Remove(objCLientToEdit);
+                _context.SaveChanges();
+            }
         }
         private void OpenWindow_Click(object sender, RoutedEventArgs e)
         {
@@ -130,7 +139,7 @@ namespace ProjektSemestralnyCSharp
         private void clientGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             _context.SaveChanges();
-            MessageBox.Show("The Current row updation is complete..");
+            MessageBox.Show("Row updated...");
         }
     }
 }
