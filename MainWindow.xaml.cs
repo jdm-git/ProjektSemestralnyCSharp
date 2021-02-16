@@ -23,6 +23,9 @@ namespace ProjektSemestralnyCSharp
     public partial class MainWindow : Window
     {
         private ProjectContext _context = new ProjectContext();
+        private bool isUpdateMode = false;
+        private Client objCLientToEdit;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -43,29 +46,14 @@ namespace ProjektSemestralnyCSharp
         }
         private void UpdateClient_Click(object sender, RoutedEventArgs e)
         {
-            if(clientDataGrid.SelectedIndex >= 0)
-            {
+                isUpdateMode = true;
+            clientDataGrid.Columns[1].IsReadOnly = false;
+            clientDataGrid.Columns[3].IsReadOnly = false;
+            clientDataGrid.Columns[4].IsReadOnly = false;
+            clientDataGrid.Columns[7].IsReadOnly = false;
+            clientDataGrid.Columns[8].IsReadOnly = false;
+            clientDataGrid.Columns[9].IsReadOnly = false;
 
-               
-
-                Client newClient = new Client();
-
-                newClient.Id = (clientDataGrid.SelectedItem as Client).Id;
-                newClient.Adress = (clientDataGrid.SelectedItem as Client).Adress;
-                newClient.Email = (clientDataGrid.SelectedItem as Client).Email;
-                newClient.FirstName = (clientDataGrid.SelectedItem as Client).FirstName;
-                newClient.LastName = (clientDataGrid.SelectedItem as Client).LastName;
-                newClient.Login = (clientDataGrid.SelectedItem as Client).Login;
-                newClient.Password = (clientDataGrid.SelectedItem as Client).Password;
-                newClient.Phone = (clientDataGrid.SelectedItem as Client).Phone;
-                newClient.State = (clientDataGrid.SelectedItem as Client).State;
-                newClient.ZipCode = (clientDataGrid.SelectedItem as Client).ZipCode;
-
-                Client client = clientDataGrid.SelectedItem as Client;
-                _context.Clients.Remove(client);
-                _context.Clients.Add(newClient);
-                _context.SaveChanges();
-            }
         }
         private void DeleteClient_Click(object sender, RoutedEventArgs e)
         {
@@ -84,11 +72,65 @@ namespace ProjektSemestralnyCSharp
             AdminWindow adminWindow = new AdminWindow();
             adminWindow.Show();
         }
-        
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void gridClient_SelectionChanged(object sender, RoutedEventArgs e)
         {
+           objCLientToEdit = clientDataGrid.SelectedItem as Client;
+        }
+        private void gridClient_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if (isUpdateMode)
+            {
+                Client temporaryClient = _context.Clients.Where(c => c.Id == objCLientToEdit.Id).SingleOrDefault();
 
+                FrameworkElement element_1 = clientDataGrid.Columns[1].GetCellContent(e.Row);
+                if(element_1.GetType() == typeof(TextBox))
+                {
+                var adress = ((TextBox)element_1).Text;
+                objCLientToEdit.Adress = adress;
+                }
+
+                FrameworkElement element_2 = clientDataGrid.Columns[3].GetCellContent(e.Row);
+                if (element_2.GetType() == typeof(TextBox))
+                {
+                var newName = ((TextBox)element_2).Text;
+                objCLientToEdit.FirstName = newName;
+                }
+
+                FrameworkElement element_3 = clientDataGrid.Columns[4].GetCellContent(e.Row);
+                if (element_3.GetType() == typeof(TextBox))
+                {
+                    var newSurname = ((TextBox)element_3).Text;
+                    objCLientToEdit.LastName = newSurname;
+                }
+
+                FrameworkElement element_4 = clientDataGrid.Columns[7].GetCellContent(e.Row);
+                if (element_4.GetType() == typeof(TextBox))
+                {
+                    var newPhone = ((TextBox)element_4).Text;
+                    objCLientToEdit.Phone = newPhone;
+                }
+
+
+                FrameworkElement element_5 = clientDataGrid.Columns[8].GetCellContent(e.Row);
+                if (element_5.GetType() == typeof(TextBox))
+                {
+                    var newState = ((TextBox)element_5).Text;
+                    objCLientToEdit.State = newState;
+                }
+
+
+                FrameworkElement element_6 = clientDataGrid.Columns[9].GetCellContent(e.Row);
+                if(element_6.GetType() == typeof(TextBox))
+                {
+                    var newZipCode = ((TextBox)element_6).Text;
+                    objCLientToEdit.ZipCode = newZipCode;
+                }
+            }
+        }
+        private void clientGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            _context.SaveChanges();
+            MessageBox.Show("The Current row updation is complete..");
         }
     }
 }

@@ -13,18 +13,27 @@
         <CollectionViewSource x:Key="productViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Product}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource clientViewSource}">
-        <DataGrid x:Name="clientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,123,0,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="clientDataGrid" 
+                  AutoGenerateColumns="False" 
+                  EnableRowVirtualization="True" 
+                  ItemsSource="{Binding}" 
+                  Margin="0,123,0,10" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" 
+                  SelectionChanged="gridClient_SelectionChanged"
+                  CellEditEnding="gridClient_CellEditEnding"
+                  RowEditEnding="clientGrid_RowEditEnding"
+                  >
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="80"/>
-                <DataGridTextColumn x:Name="adressColumn" Binding="{Binding Adress}" Header="Adress" Width="80"/>
-                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="80"/>
-                <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="80"/>
-                <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="80"/>
-                <DataGridTextColumn x:Name="loginColumn" Binding="{Binding Login}" Header="Login" Width="80"/>
-                <DataGridTextColumn x:Name="passwordColumn" Binding="{Binding Password}" Header="Password" Width="80"/>
-                <DataGridTextColumn x:Name="phoneColumn" Binding="{Binding Phone}" Header="Phone" Width="80"/>
-                <DataGridTextColumn x:Name="stateColumn" Binding="{Binding State}" Header="State" Width="80"/>
-                <DataGridTextColumn x:Name="zipCodeColumn" Binding="{Binding ZipCode}" Header="Zip Code" Width="60"/>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id, Mode=TwoWay}" Header="Id" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="adressColumn" Binding="{Binding Adress, Mode=TwoWay}" Header="Adress" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email, Mode=TwoWay}" Header="Email" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName, Mode=TwoWay}" Header="First Name" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName, Mode=TwoWay}" Header="Last Name" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="loginColumn" Binding="{Binding Login, Mode=TwoWay}" Header="Login" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="passwordColumn" Binding="{Binding Password, Mode=TwoWay}" Header="Password" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="phoneColumn" Binding="{Binding Phone, Mode=TwoWay}" Header="Phone" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="stateColumn" Binding="{Binding State, Mode=TwoWay}" Header="State" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="zipCodeColumn" Binding="{Binding ZipCode, Mode=TwoWay}" Header="Zip Code" Width="60" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Edit" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
