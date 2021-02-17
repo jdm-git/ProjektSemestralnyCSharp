@@ -13,6 +13,7 @@
     <Grid DataContext="{StaticResource categoryViewSource}">
         <DataGrid x:Name="categoryDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,10,509,583" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="100"/>
                 <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="100"/>
                 <DataGridTemplateColumn Header="Edit" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
@@ -53,11 +54,21 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="categoryName" HorizontalAlignment="Left" Height="23" Margin="155,342,0,0" TextWrapping="Wrap" Text="Category Name" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="productName" HorizontalAlignment="Left" Height="23" Margin="602,305,0,0" TextWrapping="Wrap" Text="Product Name" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="productPrice" HorizontalAlignment="Left" Height="23" Margin="602,333,0,0" TextWrapping="Wrap" Text="Price" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="productDescription" HorizontalAlignment="Left" Height="23" Margin="602,361,0,0" TextWrapping="Wrap" Text="Category Description" VerticalAlignment="Top" Width="145"/>
-        <TextBox x:Name="categoryId" HorizontalAlignment="Left" Height="23" Margin="602,389,0,0" TextWrapping="Wrap" Text="Category ID" VerticalAlignment="Top" Width="145"/>
+        <TextBox x:Name="categoryName" HorizontalAlignment="Left" Height="23" Margin="155,342,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <Label Content="Category name: " HorizontalAlignment="Left" Margin="58,337,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="productName" HorizontalAlignment="Left" Height="23" Margin="602,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <Label Content="Product name: " HorizontalAlignment="Left" Margin="497,305,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="productPrice" HorizontalAlignment="Left" Height="23" Margin="602,333,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <Label Content="Product price: " HorizontalAlignment="Left" Margin="500,331,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="productDescription" HorizontalAlignment="Left" Height="23" Margin="602,361,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <Label Content="Description: " HorizontalAlignment="Left" Margin="511,358,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="categoryId" HorizontalAlignment="Left" Height="23" Margin="602,389,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <Label Content="Category id: " HorizontalAlignment="Left" Margin="510,384,0,0" VerticalAlignment="Top"/>
+
         <Button Background="ForestGreen" Content="Add Category" Click="AddCategory_Click" HorizontalAlignment="Left" Margin="171,393,0,0" VerticalAlignment="Top" Width="80"/>
         <Button Background="ForestGreen" Content="Add Product" Click="AddProduct_Click" HorizontalAlignment="Left" Margin="873,333,0,0" VerticalAlignment="Top" Width="80"/>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
@@ -76,16 +77,22 @@ namespace ProjektSemestralnyCSharp
         }
         private void AddCategory_Click(object sender, RoutedEventArgs e)
         {
+            if (String.IsNullOrEmpty(categoryName.Text))
+                MessageBox.Show("Cannot add an empty category");
+            else
+            {
             _context.Categories.Add(new Category
             {
                 Name = categoryName.Text
             });
 
             _context.SaveChanges();
+            }
         }
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            _context.Products.Add(new Product
+            if (String.IsNullOrEmpty(productName.Text) || String.IsNullOrEmpty(productPrice.Text) || String.IsNullOrEmpty(categoryId.Text) || String.IsNullOrEmpty(productDescription.Text))
+                _context.Products.Add(new Product
             {
                 Name = productName.Text,
                 Price = int.Parse(productPrice.Text),
