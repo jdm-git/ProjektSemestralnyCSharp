@@ -11,10 +11,19 @@
         <CollectionViewSource x:Key="productViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Product}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource categoryViewSource}">
-        <DataGrid x:Name="categoryDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,10,509,583" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="categoryDataGrid"
+                  AutoGenerateColumns="False"
+                  EnableRowVirtualization="True" 
+                  ItemsSource="{Binding}" 
+                  Margin="0,10,509,583" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected"
+                  SelectionChanged="gridCategory_SelectionChanged"
+                  CellEditEnding="gridCategory_CellEditEnding"
+                  RowEditEnding="gridCategory_RowEditEnding"
+                  >
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="100"/>
-                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="100"/>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="100" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="100" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Edit" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -31,13 +40,22 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="productDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource productViewSource}}" Margin="563,10,0,583" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="productDataGrid" 
+                  AutoGenerateColumns="False"
+                  EnableRowVirtualization="True" 
+                  ItemsSource="{Binding Source={StaticResource productViewSource}}"
+                  Margin="563,10,0,583"
+                  RowDetailsVisibilityMode="VisibleWhenSelected"
+                  SelectionChanged="gridProduct_SelectionChanged"
+                  CellEditEnding="gridProduct_CellEditEnding"
+                  RowEditEnding="gridProduct_RowEditEnding"
+                  >
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="categoryIdColumn" Binding="{Binding CategoryId}" Header="Category Id" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="idColumn1" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="descriptionColumn" Binding="{Binding Description}" Header="Description" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="nameColumn1" Binding="{Binding Name}" Header="Name" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="Price" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="categoryIdColumn" Binding="{Binding CategoryId}" Header="Category Id" Width="SizeToHeader" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="idColumn1" Binding="{Binding Id}" Header="Id" Width="SizeToHeader" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="descriptionColumn" Binding="{Binding Description}" Header="Description" Width="SizeToHeader" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="nameColumn1" Binding="{Binding Name}" Header="Name" Width="SizeToHeader" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="Price" Width="SizeToHeader" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Edit" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -92,7 +92,10 @@ namespace ProjektSemestralnyCSharp
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
             if (String.IsNullOrEmpty(productName.Text) || String.IsNullOrEmpty(productPrice.Text) || String.IsNullOrEmpty(categoryId.Text) || String.IsNullOrEmpty(productDescription.Text))
-                _context.Products.Add(new Product
+                MessageBox.Show("Cannot add an empty product");
+            else
+            {
+            _context.Products.Add(new Product
             {
                 Name = productName.Text,
                 Price = int.Parse(productPrice.Text),
@@ -102,6 +105,7 @@ namespace ProjektSemestralnyCSharp
 
 
             _context.SaveChanges();
+            }
             
         }
         public void RemoveText(object sender, RoutedEventArgs e)
