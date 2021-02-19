@@ -22,6 +22,7 @@
                   SelectionChanged="gridClient_SelectionChanged"
                   CellEditEnding="gridClient_CellEditEnding"
                   RowEditEnding="clientGrid_RowEditEnding"
+                  
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id, Mode=TwoWay}" Header="Id" Width="80" IsReadOnly="True"/>

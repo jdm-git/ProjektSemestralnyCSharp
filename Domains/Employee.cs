@@ -1,5 +1,6 @@
 ﻿namespace ProjektSemestralnyCSharp
 {
+    //Representation of Employees table in Database
     public class Employee
     {
         public int Id { get; set; }

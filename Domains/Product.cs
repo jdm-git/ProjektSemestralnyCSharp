@@ -1,5 +1,6 @@
 ﻿namespace ProjektSemestralnyCSharp
 {
+    //Representation of Products table in Database
     public class Product
     {
         public int Id { get; set; }

@@ -17,9 +17,7 @@ using System.Xml;
 
 namespace ProjektSemestralnyCSharp
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
+    //Main class of MainWindow
     public partial class MainWindow : Window
     {
         private ProjectContext _context = new ProjectContext();
@@ -53,6 +51,7 @@ namespace ProjektSemestralnyCSharp
             }
             else
             {
+                
                 isUpdateMode = true;
                 clientDataGrid.Columns[1].IsReadOnly = false;
                 clientDataGrid.Columns[3].IsReadOnly = false;
@@ -60,6 +59,7 @@ namespace ProjektSemestralnyCSharp
                 clientDataGrid.Columns[7].IsReadOnly = false;
                 clientDataGrid.Columns[8].IsReadOnly = false;
                 clientDataGrid.Columns[9].IsReadOnly = false;
+                
             }
 
         }

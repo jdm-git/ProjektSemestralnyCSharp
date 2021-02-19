@@ -2,6 +2,7 @@
 
 namespace ProjektSemestralnyCSharp
 {
+    //Representation of Orders table in Database
     public class Order
     {
         public int Id { get; set; }

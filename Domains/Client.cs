@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ProjektSemestralnyCSharp
 {
+    //Representation of Clients table in Database
     public class Client
     {
         public int Id { get; set; }
